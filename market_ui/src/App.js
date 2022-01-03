@@ -5,20 +5,19 @@ import {
   Link,
   Route,
   Routes,
-  Fragment
 } from "react-router-dom";
 import Liquidity from './Liquidity/Liquidity';
 import React from 'react';
-
+import './App.css';
 
 function App() {
   return (
     <>
       <Router>
-        <Header/>
+        <Header />
         <Routes>
-          <Route path="/Liquidity" element={<Liquidity/>}/>
-
+          <Route path="/Liquidity" element={<Liquidity />} />
+          
         </Routes>
       </Router>
     </>

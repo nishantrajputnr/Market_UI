@@ -1,73 +1,44 @@
 import React from "react";
-import {
-  Container,
-  Grid,
-  makeStyles,
-  Paper,
-  Typography,
-} from "@material-ui/core";
-
-import SwitchButton from "./SwitchButton";
-import LiquidityDeployer from "./LiquidityDeployer";
-import LiquidityRemover from "./RemoveLiquidity";
-
-const styles = (theme) => ({
-  paperContainer: {
-    borderRadius: theme.spacing(2),
-    padding: theme.spacing(1),
-    paddingBottom: theme.spacing(3),
-    maxWidth: 700,
-    margin: "auto",
-  },
-  title: {
-    textAlign: "center",
-    padding: theme.spacing(0.5),
-    marginBottom: theme.spacing(1),
-  },
-  footer: {
-    marginTop: "155px",
-  },
-});
-
-const useStyles = makeStyles(styles);
+import * as A from "react-bootstrap";
+import '../Liquidity.css';
 
 function Liquidity() {
-  const classes = useStyles();
-
-  const [deploy, setDeploy] = React.useState(true);
-
-  const deploy_or_remove = (deploy) => {
-    if (deploy === true) {
-      return <LiquidityDeployer />;
-    }
-    return <LiquidityRemover />;
-  };
-
   return (
-    <div>
-      <Container>
-        <Paper className={classes.paperContainer}>
-          <Typography variant="h5" className={classes.title}>
-            <SwitchButton setDeploy={setDeploy} />
-          </Typography>
+    <>
+      <A.Container fluid>
+        <div className="liquidity pb-4 pt-4">
+          <b className="big">ADD LIQUIDITY</b><br>
+          </br><br />
+          <div className="para">
+          <p><b>Tip:</b> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time.</p>
+          </div>
+          <form className="margina">
+            <div className = "mt-4 mb-4 bor">
+              <input className="inp" type="text" name="name1" id="datahere" placeholder="0.0" />
+              <select id="selectoption">
+                <option value="A">ETH</option>
+                <option value="B">DCX</option>
+                <option value="C">DCXa</option>
+              </select>
+              <div className="right"><p>Balance:0</p></div>
 
-          {deploy_or_remove(deploy)}
-        </Paper>
-      </Container>
+            </div>
+            <div className = "bor">
+              <input className="inp" type="text" name="name1" id="datahere" placeholder="0.0" />
+              <select id="selectoption">
+                <option value="A">ETH</option>
+                <option value="B">DCX</option>
+                <option value="C">DCXa</option>
+              </select>
+              <div className="right"><p>Balance:0</p></div>
 
-      <Grid
-        container
-        className={classes.footer}
-        direction="row"
-        justifyContent="center"
-        alignItems="flex-end"
-      >
-        <p>
-          Clearmatics Autonity Uniswap | Get AUT for use in the bakerloo testnet{" "}
-          <a href="https://faucet.bakerloo.autonity.network/">here</a>
-        </p>
-      </Grid>
-    </div>
+            </div>
+            <button type="btn" className="btn">ADD LIQUIDITY POOL</button>
+          </form>
+
+        </div>
+      </A.Container>
+    </>
   );
 }
 
